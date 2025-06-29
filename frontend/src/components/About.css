@@ -1,0 +1,104 @@
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  background-color: var(--background-white);
+}
+
+.about-content {
+  flex: 1.2;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.about-content h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background-color: var(--primary-blue);
+  border-radius: 2px;
+}
+
+.about-content > p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.vision-mission {
+  display: flex;
+  gap: 2rem;
+}
+
+.vision, .mission {
+  flex: 1;
+}
+
+.vision-mission h3 {
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* This makes the section a reference for positioning our absolute gears */
+.about-section {
+  position: relative; 
+}
+
+.gear {
+  position: absolute;
+  stroke: var(--primary-blue); /* Gear color */
+  opacity: 0.15;
+  z-index: -1; /* Place them behind the content */
+  animation: spin 20s linear infinite; /* The spin animation */
+}
+
+/* Position and style the first gear */
+.gear-1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  left: -60px;
+}
+
+/* Position, style, and spin the second gear the other way */
+.gear-2 {
+  width: 120px;
+  height: 120px;
+  bottom: -40px;
+  right: -30px;
+  animation-direction: reverse; /* Spin it backwards */
+  animation-duration: 15s; /* Spin it faster */
+}
+
+/* The Keyframes animation for spinning */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

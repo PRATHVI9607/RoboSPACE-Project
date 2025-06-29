@@ -1,0 +1,133 @@
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90vh;
+  background: linear-gradient(135deg, var(--light-blue), var(--background-white));
+  position: relative;
+  text-align: left;
+}
+
+.hero-content {
+  flex: 1;
+  z-index: 2;
+  padding-right: 2rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: var(--light-text);
+  max-width: 600px;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.hero-cta-button {
+  padding: 1rem 2.5rem;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Beautiful Wave Shape Divider */
+.custom-shape-divider-bottom-1668462458 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.custom-shape-divider-bottom-1668462458 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+.custom-shape-divider-bottom-1668462458 .shape-fill {
+    fill: var(--background-white);
+}
+
+.clouds-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Places clouds behind content but in front of background */
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  opacity: 0.5;
+  border-radius: 100px;
+  /* This animation rule makes them move */
+  animation: animateCloud 35s linear infinite;
+}
+
+/* Let's make each cloud look a bit different */
+.cloud-1 {
+  width: 200px;
+  height: 60px;
+  top: 15%;
+}
+
+.cloud-2 {
+  width: 300px;
+  height: 90px;
+  top: 30%;
+  /* This cloud moves slower and starts later */
+  animation-duration: 50s;
+  animation-delay: -5s;
+}
+
+.cloud-3 {
+  width: 150px;
+  height: 50px;
+  top: 60%;
+  /* This one is faster and starts at a different time */
+  animation-duration: 30s;
+  animation-delay: -15s;
+}
+
+/* The Keyframes animation defines the movement */
+@keyframes animateCloud {
+  0% {
+    transform: translateX(-250px); /* Start off-screen to the left */
+  }
+  100% {
+    transform: translateX(100vw); /* End off-screen to the right */
+  }
+}

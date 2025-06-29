@@ -1,0 +1,46 @@
+.partner-section {
+  background: linear-gradient(135deg, var(--primary-blue), #2978c9);
+  color: white;
+  text-align: center;
+}
+
+.partner-content h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.partner-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.partner-cta-button {
+  padding: 1rem 2.5rem;
+  background-color: var(--background-white);
+  color: var(--primary-blue);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.partner-cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}

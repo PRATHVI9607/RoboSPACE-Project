@@ -1,0 +1,34 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary-blue: #4A90E2; /* A striking, friendly blue */
+  --light-blue: #EAF2F8;   /* A very light, morning sky blue */
+  --dark-text: #2c3e50;    /* A softer black for text */
+  --light-text: #555555;
+  --background-white: #FFFFFF;
+  --border-color: #E0E0E0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-white);
+  color: var(--dark-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+section {
+  padding: 6rem 8%;
+  overflow: hidden; /* This is important for animations not to break layout */
+}
