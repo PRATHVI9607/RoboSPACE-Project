@@ -1,0 +1,195 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--morning-accent);
+    margin-bottom: 30px;
+    animation: pulse 3s infinite;
+}
+
+
+body.night .title {
+    color: var(--night-text);
+}
+
+.subtitle {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 600;
+    color: var(--morning-text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+body.night .subtitle {
+    color: var(--night-text-secondary);
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--morning-text-secondary);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.night .description {
+    color: var(--night-text-secondary);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.btnSecondary {
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--morning-accent);
+    background: transparent;
+    color: var(--morning-accent);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+body.night .btnSecondary {
+    border-color: var(--night-accent);
+    color: var(--night-accent);
+}
+
+.btnSecondary:hover {
+    background: var(--morning-accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+}
+
+body.night .btnSecondary:hover {
+    background: var(--night-accent);
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+body.night .feature {
+    background: rgba(26, 31, 58, 0.4);
+    border-color: rgba(108, 99, 255, 0.2);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+body.night .feature:hover {
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.2);
+}
+
+.featureIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+body.night .featureIcon {
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+}
+
+.feature h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: var(--morning-text);
+}
+
+body.night .feature h3 {
+    color: var(--night-text);
+}
+
+.feature p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--morning-text-secondary);
+}
+
+body.night .feature p {
+    color: var(--night-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons a {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

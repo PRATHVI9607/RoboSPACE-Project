@@ -1,0 +1,168 @@
+.programs {
+    padding: 120px 20px;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--morning-text);
+}
+
+body.night .title {
+    color: var(--night-text);
+}
+
+.subtitle {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--morning-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+body.night .subtitle {
+    color: var(--night-text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.programCard {
+    animation: fadeInUp 0.8s ease-out backwards;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.programCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0EA5E9, #06B6D4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+body.night .programCard::before {
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+}
+
+.programCard:hover::before {
+    transform: scaleX(1);
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+}
+
+body.night .iconWrapper {
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.programCard:hover .iconWrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.programTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--morning-text);
+}
+
+body.night .programTitle {
+    color: var(--night-text);
+}
+
+.programDescription {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--morning-text-secondary);
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+body.night .programDescription {
+    color: var(--night-text-secondary);
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+}
+
+body.night .featureList {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.featureList li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--morning-text-secondary);
+}
+
+body.night .featureList li {
+    color: var(--night-text-secondary);
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--morning-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+body.night .checkmark {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--night-accent);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
