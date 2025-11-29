@@ -12,8 +12,10 @@ export default function Footer() {
                 <div className={styles.content}>
                     <div className={styles.brand}>
                         <div className={styles.logo}>
-                            <span className={styles.logoIcon}>🤖</span>
-                            <span className={styles.logoText}>RoboSpace</span>
+                            <div className={styles.logoPlaceholder}>
+                                <img src="/placeholder-logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0 }} />
+                            </div>
+                            <span className={styles.logoText} >RoboSpace</span>
                         </div>
                         <p className={styles.tagline}>
                             Empowering the next generation through robotics and STEM education

@@ -67,15 +67,22 @@ body.night .sectionTitle {
     height: 60px;
     margin: 0 auto 20px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--morning-icon-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 body.night .positionIcon {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: var(--night-icon-gradient);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.positionCard:hover .positionIcon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .positionTitle {

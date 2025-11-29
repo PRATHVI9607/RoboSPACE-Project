@@ -85,8 +85,8 @@ body.night .programCard::before {
 }
 
 body.night .iconWrapper {
-    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    background: var(--night-icon-gradient);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
 .programCard:hover .iconWrapper {
