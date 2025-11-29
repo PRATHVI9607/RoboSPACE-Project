@@ -33,22 +33,7 @@ body.night .footer {
 }
 
 .logoIcon {
-    display: none;
-}
-
-.logoPlaceholder {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%);
-    border: 2px dashed #cbd5e1;
-    position: relative;
-    overflow: hidden;
-}
-
-body.night .logoPlaceholder {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-color: #475569;
+    font-size: 32px;
 }
 
 .logoText {

@@ -1,31 +1,16 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
-
-type Theme = 'morning' | 'night'
-type ThemeContextType = {
-    theme: Theme
-    toggleTheme: () => void
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
-export function useTheme() {
-    const context = useContext(ThemeContext)
-    if (context === undefined) {
-        throw new Error('useTheme must be used within a ThemeProvider')
-    }
-    return context
-}
+import { useEffect, useState } from 'react'
+import { Sun, Moon } from 'lucide-react'
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-    const [theme, setTheme] = useState<Theme>('morning')
+    const [theme, setTheme] = useState<'morning' | 'night'>('morning')
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
         setMounted(true)
         // Check localStorage for saved theme
-        const savedTheme = localStorage.getItem('theme') as Theme | null
+        const savedTheme = localStorage.getItem('theme') as 'morning' | 'night' | null
         if (savedTheme) {
             setTheme(savedTheme)
             document.body.className = savedTheme
@@ -45,14 +30,47 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         localStorage.setItem('theme', newTheme)
     }
 
-    // Prevent hydration mismatch by only rendering after mount
-    // However, we must provide the context to children even if not mounted yet (for SSR/initial render)
-    // or handle the loading state differently. 
-    // For now, we render the provider to avoid 'useTheme' errors in children.
+    if (!mounted) return <>{children}</>
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {mounted ? children : <div style={{ visibility: 'hidden' }}>{children}</div>}
-        </ThemeContext.Provider>
+        <>
+            <button
+                onClick={toggleTheme}
+                className="glass"
+                style={{
+                    position: 'fixed',
+                    top: '24px',
+                    right: '80px', // Moved left to avoid mobile menu button
+                    zIndex: 9999, // Super high z-index
+                    padding: '12px',
+                    borderRadius: '50%',
+                    border: 'none',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '48px', // Slightly smaller
+                    height: '48px',
+                    transition: 'all 0.3s ease',
+                    boxShadow: theme === 'morning'
+                        ? '0 8px 24px rgba(14, 165, 233, 0.3)'
+                        : '0 8px 24px rgba(59, 130, 246, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1) rotate(10deg)'
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1) rotate(0deg)'
+                }}
+                aria-label="Toggle theme"
+            >
+                {theme === 'morning' ? (
+                    <Moon size={26} color="#0EA5E9" strokeWidth={2.5} />
+                ) : (
+                    <Sun size={26} color="#FFD700" strokeWidth={2.5} />
+                )}
+            </button>
+            {children}
+        </>
     )
 }

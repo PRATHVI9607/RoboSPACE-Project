@@ -1,14 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import styles from './Navbar.module.css'
-import { useTheme } from './ThemeProvider'
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const { theme, toggleTheme } = useTheme()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,62 +28,33 @@ export default function Navbar() {
         <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <div className={styles.logo}>
-                    <div className={styles.logoPlaceholder}>
-                        <img src="/placeholder-logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0 }} />
-                    </div>
+                    <span className={styles.logoIcon}>🤖</span>
                     <span className={styles.logoText}>RoboSpace</span>
                 </div>
 
                 {/* Desktop Menu */}
-                <div className={styles.desktopMenu}>
-                    <ul className={styles.navLinks}>
-                        {navLinks.map((link) => (
-                            <li key={link.href}>
-                                <a href={link.href} className={styles.navLink}>
-                                    {link.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <button
-                        onClick={toggleTheme}
-                        className={styles.themeToggle}
-                        aria-label="Toggle theme"
-                    >
-                        {theme === 'morning' ? (
-                            <Moon size={20} className={styles.themeIcon} />
-                        ) : (
-                            <Sun size={20} className={styles.themeIcon} />
-                        )}
-                    </button>
-                </div>
+                <ul className={styles.navLinks}>
+                    {navLinks.map((link) => (
+                        <li key={link.href}>
+                            <a href={link.href} className={styles.navLink}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
 
                 <a href="#partner" className="btn-primary" style={{ display: 'none' }}>
                     Get Started
                 </a>
 
                 {/* Mobile Menu Button */}
-                <div className={styles.mobileControls}>
-                    <button
-                        onClick={toggleTheme}
-                        className={`${styles.themeToggle} ${styles.mobileThemeToggle}`}
-                        aria-label="Toggle theme"
-                    >
-                        {theme === 'morning' ? (
-                            <Moon size={20} className={styles.themeIcon} />
-                        ) : (
-                            <Sun size={20} className={styles.themeIcon} />
-                        )}
-                    </button>
-                    <button
-                        className={styles.mobileMenuBtn}
-                        onClick={() => setIsMobileMenuOpen(true)}
-                        aria-label="Open menu"
-                    >
-                        <Menu size={24} />
-                    </button>
-                </div>
+                <button
+                    className={styles.mobileMenuBtn}
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    aria-label="Open menu"
+                >
+                    <Menu size={24} />
+                </button>
             </div>
 
             {/* Mobile Menu Overlay */}
